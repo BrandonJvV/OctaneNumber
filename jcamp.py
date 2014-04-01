@@ -18,13 +18,15 @@ def read_jcamp(filename):
                 value += ' ' + line
             if tag in endtags:
                 break
-        data = loadtxt(f)
-        xdata = arange(d['FIRSTX'], d['LASTX']+d['DELTAX'], d['DELTAX'])
-        ydata = data[:, 1:].flatten()*float(d['YFACTOR'])
-        
-        d['XDATA'] = xdata
-        d['YDATA'] = ydata
-        
+        yvalues = []
+        N = int(ceil((d['LASTX'] - d['FIRSTX'])/d['DELTAX']))
+        d['XDATA'] = arange(N)*d['DELTAX'] + d['FIRSTX']
+        for line in f: # now read the data
+            if not line.startswith("#"):
+                linevalues = map(float, line.strip().split())
+                yvalues += linevalues[1:]
+        d['YDATA'] = array(yvalues[:N])*float(d['YFACTOR'])
+        assert len(d['XDATA']) == len(d['YDATA']), "X and Y values don't match: %i != %i" % (len(d['XDATA']), len(d['YDATA']))
         return d
 
 def plotdata(d):
@@ -41,8 +43,13 @@ def plotdata(d):
 
 if __name__ == "__main__":
     import sys
+    import os.path
     for filename in sys.argv[1:]:
+        print filename
         d = read_jcamp(filename)
-        plotdata(d)
-        savefig(d['TITLE'] + '.pdf')
-        close()
+        root, ext = os.path.splitext(filename)
+        picname = "%s_%s.pdf" % (root, d['TITLE'])
+        if not os.path.exists(picname):
+            plotdata(d)
+            savefig(picname)
+            close()
