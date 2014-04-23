@@ -3,9 +3,6 @@
 
 # <codecell>
 
-%pylab inline
-
-# <codecell>
 
 def get_spectra(datadir):
     '''Creates spectrum array from directory 'datadir'.''' 
@@ -34,7 +31,6 @@ def get_ranges(spectra):
     
     return ranges, starting_wn, ending_wn
 
-range, swn, ewn = get_ranges(spec)
 
 # <codecell>
 
