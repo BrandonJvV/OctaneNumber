@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 # <nbformat>3.0</nbformat>
 
+import pandas
+import jcamp
+import os.path
+import glob
+
+from pylab import *
+
 # <codecell>
 
 
