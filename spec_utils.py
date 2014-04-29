@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
 
 import pandas
 import jcamp
@@ -7,8 +5,6 @@ import os.path
 import glob
 
 from pylab import *
-
-# <codecell>
 
 
 def get_spectra(datadir):
@@ -19,7 +15,6 @@ def get_spectra(datadir):
         spectra.append(d)
     return spectra
 
-# <codecell>
 
 def get_ranges(spectra):
     '''Find the range of wavenumbers in (spectra).
@@ -39,8 +34,6 @@ def get_ranges(spectra):
     return ranges, starting_wn, ending_wn
 
 
-# <codecell>
-
 def spectra_DataFrame(spectra, starting_wn, ending_wn, n):
     '''Resample the data at a set delta wavelength value (n) 
     between the starting wavelength and ending wavelength.'''
@@ -59,8 +52,7 @@ def spectra_DataFrame(spectra, starting_wn, ending_wn, n):
     df = pandas.DataFrame(ss)
     df.index.name = 'Wave number'
     return df
-
-# <codecell>
+	
 
 def normalize(dataFrame):
     '''Normalise the data to an integral of 1.'''
@@ -69,13 +61,11 @@ def normalize(dataFrame):
     nf = dataFrame/areas
     return nf
 
-# <codecell>
-
+	
 def mean_data(dataFrame):
     means = dataFrame.sub(dataFrame.mean(1), axis=0)
     return means
-
-# <codecell>
+	
 
 def pca_data(data, n):
     '''Perform PCA on data for dimension reduction up to (n) components.
@@ -87,7 +77,6 @@ def pca_data(data, n):
     X_PCA = pca.fit(data).transform(data)
     return X_PCA, pca
 
-# <codecell>
 
 def scree_plot(pca):
     '''Return a Scree Plot for the PCA function.'''
@@ -97,7 +86,6 @@ def scree_plot(pca):
     ylabel('Variance Ratio')
     title('Scree Plot')
 
-# <codecell>
 
 def pca_dataFrame(X_PCA, spectra):
     '''Returns the PCA scores for data in a DataFrame.'''
