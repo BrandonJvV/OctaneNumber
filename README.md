@@ -13,5 +13,5 @@ Notebook links
 
 Use these links to view the notebooks online
 
-* [OctanePrediction](https://github.com/BrandonJvV/OctaneNumber/blob/master/OctanePrediction.ipynb)
-* [Normalisation](https://github.com/BrandonJvV/OctaneNumber/blob/master/Normalisation.ipynb)
+* [OctanePrediction](http://nbviewer.ipython.org/github/BrandonJvV/OctaneNumber/blob/master/OctanePrediction.ipynb?create=1)
+* [Normalization](http://nbviewer.ipython.org/github/BrandonJvV/OctaneNumber/blob/master/Normalization.ipynb?create=1)
