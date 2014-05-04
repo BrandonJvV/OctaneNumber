@@ -7,3 +7,11 @@ Important configuration
 -----------------------
 
 Create a copy of "config_sample.json" and name it "config.json". Open this new file in a text editor and change the directories in it to point to the correct data location on your machine.
+
+Notebook links
+--------------
+
+Use these links to view the notebooks online
+
+* [OctanePrediction](https://github.com/BrandonJvV/OctaneNumber/blob/master/OctanePrediction.ipynb)
+* [Normalisation](https://github.com/BrandonJvV/OctaneNumber/blob/master/Normalisation.ipynb)
